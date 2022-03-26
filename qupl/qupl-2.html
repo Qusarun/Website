@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUPL</title>
+	<link rel='stylesheet' href='../docs/styles.css'>
+    <script src="highlighting.js"></script>
+	<link rel='icon' type='image/png' href='qupl.png'>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="../langapp.html">LangApp</a>
+        <a href="../cygni/cygni.html">Cygni</a>
+        <a href="../qupl/qupl.html">QUPL</a>
+        <a href="../neptune.html">Neptune</a>
+        <a href="../cygnios.html">CygniOS</a>
+        <a href="../index.html">(Only Home and QUPL buttons work right now!)</a>
+    </div>
+    <br><br><br>
+    <div>
+        <h1>General Syntax</h1>
+        <h2>Function Declarations</h2>
+        <p>
+            Example of a multi-line function:
+        </p>
+        <pre>
+    void some_function(int param1, float param2) {
+        /* do something */
+    }
+        </pre>
+        <p>
+            Example of a single-line function:
+        </p>
+        <pre>
+    void some_function(int param1, float param2) = /* do something */
+        </pre>
+        <p>
+            "void" here is the return type of the function (the type of the variable that the function outputs). "int" and "float" are types of the variables you pass to the function as parameters. The built-in types are going to be explained later in this documentation. The texts within /* and */ are comments.
+        </p>
+        <p>
+            Example of an extension function:
+        </p>
+        <pre>
+            int int.multiply_by_ten() {
+                return this * 10;
+            }
+        </pre>
+        <p>
+            The first "int" here is the return type of the function, the second "int" is the type that this function extends.
+        </p>
+        <h2>Function calls</h2>
+        <pre>
+            println("Hello, World!") /* normal function call with parentheses */
+            println "Hello, World!" /* normal function call without parentheses */
+            5.multiply_by_ten() /* extension function call with parentheses */
+            5.multiply_by_ten /* extension function call without parentheses */
+        </pre>
+        <h2>Variable Declarations</h2>
+        <p>
+            Example of a variable declaration:
+        </p>
+        <pre>
+    int i = 0
+        </pre>
+        <p>
+            "int" here is the type of the variable, "i" is the name, "0" is the initial value.
+        </p>
+        <h2>Strings and characters</h2>
+        <p>
+            Single quotes are used to declare character literals, double quotes are used to declare string literals. A few things about strings: "Hello, World!" will default to a proper string when a valid String struct is available in the project, in all other cases, it'll be a zero-terminated string. Z"Hello, World!" will always be a zero-terminated string. A"Hello, World!" will always be a character array.
+        </p>
+        <h2>Arrays and pointers</h2>
+        <p>
+            Arrays and pointers are basically the same in QUPL. Here is how you can declare and access them:
+        </p>
+        <pre>
+    int[]  int_pointer  = 420 /* you can think of this as an array of length one
+                                  with "1" as its only element                    */
+    char[] char_pointer = []0xB8000 /* pointer to the address 0x8b000 (video memory
+                                        address provided by BIOS when in text mode)  */
+    int[]  c_array      = int[] C(1, 2, 3, 4, 5) /* C-like array         */
+    println(int_pointer[0]) /* prints 420 */
+    println(c_array[0])     /* prints 1   */
+    char_pointer[0] = 'H'
+    char_pointer[1] = 'e'
+    char_pointer[2] = 'l'
+    char_pointer[3] = 'l'
+    char_pointer[4] = 'o'
+    char_pointer[5] = '!'
+    /* dynamic arrays will be discussed later */
+        </pre>
+    </div>
+    <a href="qupl-1.html" class="pages">&lt; Last Page</a><br>
+    <a href="qupl-3.html" class="pages">Next Page &gt;</a><br>
+    <br><br>
+</body>
+</html>
